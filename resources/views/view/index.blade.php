@@ -27,7 +27,7 @@
    <header class="header" id="header">
         <div class="header-container">
             <div class="logo">
-                <a href="index.php"><img src="./img/logo.png" alt=""></a>
+                <a href="{{route('top')}}"><img src="./img/logo.png" alt=""></a>
             </div>
             <div class="nav">
                 <div class="menu"><a href="#first">はじめに</a></div>

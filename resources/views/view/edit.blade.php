@@ -14,35 +14,32 @@
                 <input type="hidden" name="id" value="{{ $userData->id }}">
                 <!-- name -->
                     <dt><label for="name">氏名</label><span class="required">*</span></dt>
-                    
-                        <dd class="error">氏名は必須入力です。10文字以内でご入力ください。</dd>
-                    
+                    @if ($errors->has('email'))
+                        <dd class="error">{{ $errors->first('name') }}</dd>
+                    @endif
                     <dd><input type="text" name="name" id="name" value="{{ $userData->name }}"></dd>
 
                 <!-- kana -->
                     <dt><label for="kana">フリガナ</label><span class="required">*</span></dt>
-            
-                        <dd class="error">フリナガは必須入力です。10文字以内でご入力ください。</dd>
-    
+                    @if ($errors->has('email'))
+                        <dd class="error">{{ $errors->first('kana') }}</dd>
+                    @endif
                     <dd><input type="text" name="kana" id="kana"  value="{{ $userData->kana }}"></dd>
                     
 
                 <!-- tel -->
                     <dt><label for="tel">電話番号</label></dt>
-                    
-                        <dd class="error">電話番号は0-9の数字のみでご入力ください。</dd>
-        
+                    @if ($errors->has('email'))
+                        <dd class="error">{{ $errors->first('tel') }}</dd>
+                    @endif
                     <dd><input type="text" name="tel" id="tel" value="{{ $userData->tel }}"></dd>
                     
                     
                 <!-- email -->
                     <dt><label for="email">メールアドレス</label><span class="required">*</span></dt>
-                    <!-- <dd class="error">メールアドレスは正しくご入力ください。</dd> -->
-                    
-                        <dd class="error">メールアドレスは必須入力です。</dd>
-                    
-                        <dd class="error">メールアドレスは正しくご入力ください。</dd>
-
+                    @if ($errors->has('email'))
+                        <dd class="error">{{ $errors->first('email') }}</dd>
+                    @endif
                     <dd><input type="text" name="email" id="email" value="{{ $userData->email }}"></dd>
                     
                 </dl>
@@ -50,13 +47,11 @@
                 <!-- body -->
                 <h3><label for="body">お問い合わせ内容をご記入ください<span class="required">*</span></label></h3>
                 <dl class="body">
-                    <!-- <dd class="error">お問い合わせ内容は必須入力です。</dd> -->
-                    
-                        <dd class="error">お問い合わせ内容は必須入力です。</dd>
-                    
-                    
+                    <!@if ($errors->has('email'))
+                        <dd class="error">{{ $errors->first('body') }}</dd>
+                    @endif
                     <dd><textarea name="body" id="body">{{ $userData->body }}</textarea></dd>
-                    <dd><button type="submit">更　新</button></dd>
+                    <dd class="confirm_btn"><button type="submit">更　新</button></dd>
                 </dl>
 			</form>
         </div>

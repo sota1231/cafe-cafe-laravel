@@ -90,20 +90,35 @@ class CafeController extends Controller
         return redirect()->route('contact');
     }
 
-
-
-    public function index(Request $request)
+// 遷移用
+    public function aaa()
     {
-
+        return redirect()->route('contact');
     }
-    public function destory(){
+    public function iii()
+    {
+        return redirect()->route('contact');
+    }
+    public function uuu()
+    {
+        return redirect()->route('contact');
+    }
+
+
+    public function destory(Request $request){
 
         // 削除機能
+          // idの名前と一致したレコードを削除
+          $param =['id'=>$request->id];
+          DB::delete('delete from contacts where id=:id',$param);
+
+          return redirect()->route('contact');
     }
 
-
-
-
+    public function top()
+    {
+        return view('view.index');
+    }
 
 
 

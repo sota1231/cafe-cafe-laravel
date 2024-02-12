@@ -22,9 +22,9 @@ class CafeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=> 'required',
-            'kana'=> 'required',
-            // 'tel'=> 'required|integer', //修正用
+            'name'=> 'required|max:8',
+            'kana'=> 'required|max:8',
+            'tel'=> 'required|numeric', 
             'email'=> 'required|email',
             'body'=>'required',
         ];
@@ -40,7 +40,7 @@ class CafeRequest extends FormRequest
             'email.required'=>'この項目は必須項目です。',
             'body.required'=>'この項目は必須項目です。',
             // 数字
-            'tel.integer'=>'この項目は半角数字で入力してください。',
+            'tel.numeric'=>'この項目は半角数字で入力してください。',
             // メール形式
             'email.email'=>'email形式で入力してください。',   
             // 8文字以内

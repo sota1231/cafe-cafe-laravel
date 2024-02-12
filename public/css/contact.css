@@ -3,7 +3,18 @@ body{
     margin: 0;
     text-decoration: none;
     border: none;
+    list-style: none;
 }
+ul{
+    padding-left:0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
 
 .section {
     margin: 40px 0;

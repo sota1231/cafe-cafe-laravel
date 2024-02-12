@@ -10,7 +10,7 @@
   <!-- <link rel="stylesheet" href="responsive.css"> -->
   <!-- <link rel="stylesheet" href="responsive-iphone.css"> -->
   <!-- <script src="index.js"></script> -->
-  <script src="https://kit.fontawesome.com/5f1eeb6c2d.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/5f1eeb6c2d.js" crossorigin="anonymous"></script> -->
   <script src="js/index-1.js"></script>
 </head>
 <body>
@@ -19,12 +19,12 @@
    <header class="header" id="header">
         <div class="header-container">
             <div class="logo">
-                <a href="index.php"><img src="./img/logo.png" alt=""></a>
+                <a href="{{ route('top') }}"><img src="./img/logo.png" alt=""></a>
             </div>
             <div class="nav">
                 <div class="menu"><a href="#first">はじめに</a></div>
                 <div class="menu"><a href="#second">体験</a></div>
-                <div class="menu"><a href="contact.php">お問い合わせ</a></div>
+                <div class="menu"><a href="{{ route('contact')}}">お問い合わせ</a></div>
             </div>
             <div class="sign" id="sign">
                 <div class="signin">サインイン</div>
@@ -38,7 +38,7 @@
                     <div class="sp_signin _click signin">サインイン</div>
                     <div class="sp_menu _click"><a href="#first">はじめに</a></div>
                     <div class="sp_menu _click"><a href="#second">体験</a></div>
-                    <div class="sp_menu"><a href="contact.php">お問い合わせ</a></div>
+                    <div class="sp_menu"><a href="{{ route('contact')}}">お問い合わせ</a></div>
                 </div>
             </div>
         </div>

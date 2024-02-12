@@ -1,3 +1,16 @@
+
+    // 削除 alert contactフォーム
+    function checkDelete(){
+        const result = confirm('本当に削除しますか？');
+    
+        if( result ) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+
 window.onload = function(){
 
     // クリックイベント
@@ -35,21 +48,9 @@ window.onload = function(){
             signinBox.classList.remove('signin-open');
         }
     })
-    
+}
+    // window.load終わり
 
-    // 削除 alert contactフォーム
-    function checkDelete(){
-        const result = confirm('本当に削除しますか？');
-
-        if( result ) {
-        return true;
-        }else {
-        return false;
-        }
-    }
-
-    
-    }
     // JS バリデーション
     function subForm() {
         // アラート用配列
@@ -111,6 +112,5 @@ window.onload = function(){
     `)
         }
         return isRight;
-      }
-    
+    }
     

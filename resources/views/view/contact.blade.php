@@ -4,8 +4,7 @@
     <section class="section">
         <div class="contact_box">
             <h2>お問い合わせ</h2>
-			<form action="{{route('confirm')}}" method="POST" >
-            <!-- onsubmit="return subForm()" -->
+			<form action="{{route('confirm')}}" method="POST" onsubmit="return subForm()">
             @csrf
                 <h3>下記の項目をご記入の上送信ボタンを押してください</h3>
                 <p>送信頂いた件につきましては、当社より折り返しご連絡を差し上げます。</p>
@@ -14,49 +13,43 @@
                 <dl>
                 <!-- name -->
                     <dt><label for="name">氏名</label><span class="required">*</span></dt>
-        
-                        <dd class="error">氏名は必須入力です。10文字以内でご入力ください。</dd>
-        
-                    <dd><input type="text" name="name" id="name" placeholder="山田太郎" value=""></dd>
+                    @if ($errors->has('name'))
+                        <dd class="error">{{ $errors->first('name') }}</dd>
+                    @endif
+                    <dd><input type="text" name="name" id="name" placeholder="山田太郎" value="{{ old('name')}}"></dd>
 
                 <!-- kana -->
                     <dt><label for="kana">フリガナ</label><span class="required">*</span></dt>
-                    
-                        <dd class="error">フリナガは必須入力です。10文字以内でご入力ください。</dd>
-                    
-                    <dd><input type="text" name="kana" id="kana" placeholder="ヤマダタロウ" value=""></dd>
+                    @if ($errors->has('kana'))
+                        <dd class="error">{{ $errors->first('kana') }}</dd>
+                    @endif
+                    <dd><input type="text" name="kana" id="kana" placeholder="ヤマダタロウ" value="{{ old('kana')}}"></dd>
                     
 
                 <!-- tel -->
                     <dt><label for="tel">電話番号</label></dt>
-                    
-                        <dd class="error">電話番号は0-9の数字のみでご入力ください。</dd>
-                
-                    <dd><input type="text" name="tel" id="tel" placeholder="09012345678" value=""></dd>
+                    @if ($errors->has('tel'))
+                        <dd class="error">{{ $errors->first('tel') }}</dd>
+                    @endif
+                    <dd><input type="text" name="tel" id="tel" placeholder="09012345678" value="{{ old('tel')}}"></dd>
                     
                     
                 <!-- email -->
                     <dt><label for="email">メールアドレス</label><span class="required">*</span></dt>
-                    <!-- <dd class="error">メールアドレスは正しくご入力ください。</dd> -->
-                    
-                        <dd class="error">メールアドレスは必須入力です。</dd>
-                    
-                    
-                        <dd class="error">メールアドレスは正しくご入力ください。</dd>
-                
-                    <dd><input type="text" name="email" id="email" placeholder="test@test.co.jp" value=""></dd>
+                    @if ($errors->has('email'))
+                        <dd class="error">{{ $errors->first('email') }}</dd>
+                    @endif
+                    <dd><input type="text" name="email" id="email" placeholder="test@test.co.jp" value="{{ old('email')}}"></dd>
                     
                 </dl>
 
                 <!-- body -->
                 <h3><label for="body">お問い合わせ内容をご記入ください<span class="required">*</span></label></h3>
                 <dl class="body">
-                    <!-- <dd class="error">お問い合わせ内容は必須入力です。</dd> -->
-                
-                        <dd class="error">お問い合わせ内容は必須入力です。</dd>
-                
-                    
-                    <dd><textarea name="body" id="body"></textarea></dd>
+                @if ($errors->has('name'))
+                    <dd class="error">{{ $errors->first('body') }}</dd>
+                @endif    
+                    <dd><textarea name="body" id="body">{{ old('body')}}</textarea></dd>
                     <dd><button type="submit">送　信</button></dd>
                 </dl>
 			</form>
@@ -85,9 +78,9 @@
                         <td>{{ $contact->kana }}</td>
                         <td>{{ $contact->tel}}</td>
                         <td>{{ $contact->email}}</td>
-                        <td>{{ $contact->body}}</td>
+                        <td>{!! nl2br (e ($contact->body) ) !!}</td>
                         <td><a href="{{ route('edit',['id'=>$contact->id]) }}">編集</a></td>
-                        <td><a onclick= "return checkDelete()" >削除</a></td>
+                        <td><a href="{{ route('destory',['id'=>$contact->id]) }}" onclick="return checkDelete()">削除</a></td>
                     </tr>
             @endforeach
             
@@ -97,5 +90,4 @@
 
 
 
-</body>
 @endsection
