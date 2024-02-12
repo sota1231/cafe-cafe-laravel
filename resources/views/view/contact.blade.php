@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="css/contact.css">
-  <!-- <link rel="stylesheet" type="text/css" href="header.css"> -->
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="animation.css"> -->
-  <!-- <link rel="stylesheet" href="responsive.css"> -->
-  <!-- <link rel="stylesheet" href="responsive-iphone.css"> -->
-  <!-- <script src="index.js"></script> -->
-  <script src="https://kit.fontawesome.com/5f1eeb6c2d.js" crossorigin="anonymous"></script>
-  <script src="js/index-1.js"></script>
-</head>
-<body>
-    <!--?php require_once('header.php') ?> -->
+@extends('layouts.layout')
 
+@section('content')
     <section class="section">
         <div class="contact_box">
             <h2>お問い合わせ</h2>
-			<form action="{{route('confirm')}}" method="POST" onsubmit="return subForm()">
+			<form action="{{route('confirm')}}" method="POST" >
+            <!-- onsubmit="return subForm()" -->
+            @csrf
                 <h3>下記の項目をご記入の上送信ボタンを押してください</h3>
                 <p>送信頂いた件につきましては、当社より折り返しご連絡を差し上げます。</p>
                 <p>なお、ご連絡までに、お時間を頂く場合もございますので予めご了承ください。</p>
@@ -91,6 +78,18 @@
               <th></th>
             </tr>
             
+            @foreach($contacts as $contact)
+                    <tr>
+                        <td>{{ $contact->id }}</td>
+                        <td>{{ $contact->name}}</td>
+                        <td>{{ $contact->kana }}</td>
+                        <td>{{ $contact->tel}}</td>
+                        <td>{{ $contact->email}}</td>
+                        <td>{{ $contact->body}}</td>
+                        <td><a href="{{ route('edit',['id'=>$contact->id]) }}">編集</a></td>
+                        <td><a href="" onClick ="return checkDelete()">削除</a></td>
+                    </tr>
+            @endforeach
             
         </table>
     </div>
@@ -98,5 +97,5 @@
 
 
 
-    <!-- ?php require_once('footer.php') ? -->
 </body>
+@endsection

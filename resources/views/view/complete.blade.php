@@ -1,21 +1,6 @@
+@extends('layouts.layout')
 
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="css/contact.css">
-    <!-- <link rel="stylesheet" type="text/css" href="header.css"> -->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="animation.css"> -->
-    <!-- <link rel="stylesheet" href="responsive.css"> -->
-    <!-- <link rel="stylesheet" href="responsive-iphone.css"> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/5f1eeb6c2d.js" crossorigin="anonymous"></script>
-    <script src="js/index-1.js"></script>
-    </head>
-    <body>
-        <!-- ?php require_once('header.php') ?> -->
+@section('content')
 
         <section class="section">
         <div class="contact_box">
@@ -29,6 +14,4 @@
         </div>
     </section>
 
-        <!-- ?php require_once('footer.php') ?> -->
-    </body>
-</html>
+@endsection

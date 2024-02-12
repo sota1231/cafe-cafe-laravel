@@ -18,11 +18,11 @@
 
     <section class="section">
         <div class="contact_box">
-            <h2>削除しますか？</h2>
+            <h2>お問い合わせ</h2>
 			<form action="" method="post">
             @csrf
-                <p>下記の内容をご確認の上、削除ボタンを押してください</p>
-                <p>削除をやめる場合は戻るを押してください。</p>
+                <p>下記の内容をご確認の上送信ボタンを押してください</p>
+                <p>内容を訂正する場合は戻るを押してください。</p>
                 <dl class="confirm">
                     <dt>氏名</dt>
                     <dd></dd>
@@ -35,8 +35,8 @@
                     <dt>お問い合わせ内容</dt>
                     <dd></dd>
                     <dd class="confirm_btn">
-                        <button type="submit">削　除</button>
-                        <a href="{{ back() }}">戻　る</a>
+                        <button type="submit">送　信</button>
+                        <a href="">戻　る</a>
                     </dd>
                     <!-- <a href="javascript:history.back();"></a> -->
                 </dl>

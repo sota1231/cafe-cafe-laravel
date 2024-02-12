@@ -17,10 +17,9 @@ use App\Http\Controllers\CafeController;
 Route::get('/', function () {
     return view('view.index');
 });
-Route::get('contact', [CafeController::class,'contact'])->name('contact'); //問い合わせフォーム
-Route::get('confirm', [CafeController::class, 'confirm'])->name('confirm');  //詳細画面
+Route::get('contact', [CafeController::class,'contact'])->name('contact'); //問い合わせフォーム画面
 Route::post('confirm', [CafeController::class, 'confirm'])->name('confirm');  //詳細画面
 Route::get('edit', [CafeController::class, 'edit'])->name('edit');  //編集画面
 // Route::get('/', [PlayersController::class,'index'])->name('players.return');           //topページに戻る
-Route::get('complete', [CafeController::class,'complete'])->name('complete'); //カラムを１に
-// Route::post('/update/{id}', [PlayersController::class, 'update'])->name('players.update');  //　編集ボタン
+Route::post('complete', [CafeController::class,'complete'])->name('complete'); //カラムを１に
+Route::get('destory', [CafeController::class, 'destory'])->name('destory');  //　編集ボタン
