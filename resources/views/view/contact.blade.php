@@ -87,7 +87,7 @@
                         <td>{{ $contact->email}}</td>
                         <td>{{ $contact->body}}</td>
                         <td><a href="{{ route('edit',['id'=>$contact->id]) }}">編集</a></td>
-                        <td><a href="" onClick ="return checkDelete()">削除</a></td>
+                        <td><a onclick= "return checkDelete()" >削除</a></td>
                     </tr>
             @endforeach
             

@@ -35,6 +35,7 @@ window.onload = function(){
             signinBox.classList.remove('signin-open');
         }
     })
+    
 
     // 削除 alert contactフォーム
     function checkDelete(){

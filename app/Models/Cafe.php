@@ -16,4 +16,11 @@ class Cafe extends Model
             ->get();
     }
 
+    public function user_edit($id){
+        return DB::table('contacts')
+            ->select('*')
+            ->where('id',$id)
+            ->first();
+    }
+
 }

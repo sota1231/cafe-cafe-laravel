@@ -6,22 +6,22 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CafeRequest;
 use App\Models\Cafe;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class CafeController extends Controller
 {
     
+    // 入力フォーム
     public function contact()
     {
-        //contactテーブルからすべての情報をパラメータに。
         $Cafe = new Cafe();
         $contacts = $Cafe->cafeAll();
-        // dd($contacts);
         return view('view.contact',['contacts'=>$contacts]);
     }
 
+    // 確認画面
     public function confirm(CafeRequest $request){
 
-        // contactから送られてきたデータを使う
         $userData=[
             'id'=>$request->id,
             'name'=>$request->name,
@@ -34,7 +34,7 @@ class CafeController extends Controller
         return view('view.confirm',['userData'=>$userData]);
     }
 
-
+    // データベースへ保存、完了画面遷移
     public function complete(Request $request){
 
         $param=[
@@ -48,13 +48,49 @@ class CafeController extends Controller
         DB::insert('insert into contacts (name, kana, tel, email, body)
                 value (:name, :kana, :tel, :email, :body)',$param);
 
-
         return view('view.complete');
     }
 
-    public function edit(){
-        return view('view.edit');
+    // IDに合ったデータを取得して、更新画面へ遷移
+    public function edit(Request $request){
+
+        $userData1 = new Cafe();
+        $userData = $userData1->user_edit($request->id);
+        return view('view.edit',['userData'=>$userData]);
     }
+
+
+    // 更新処理して,入力フォームに返す
+    public function update(CafeRequest $request){
+
+        $param = [
+            'id'=>$request->id,
+            'name' => $request->name,
+            'kana'=>$request->kana,
+            'tel'=>$request->tel,
+            'email'=>$request->email,
+            'body'=>$request->body,
+        ];
+
+        try{
+        DB::update('update contacts set 
+                name =:name, 
+                kana =:kana, 
+                tel =:tel,
+                email=:email,
+                body =:body
+                where id =:id',$param);
+
+                return redirect()->route('contact');
+
+        }catch (QueryException $e) {
+            dd($e);
+        }
+
+        return redirect()->route('contact');
+    }
+
+
 
     public function index(Request $request)
     {
