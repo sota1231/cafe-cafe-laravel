@@ -17,14 +17,14 @@
                     @if ($errors->has('email'))
                         <dd class="error">{{ $errors->first('name') }}</dd>
                     @endif
-                    <dd><input type="text" name="name" id="name" value="{{ $userData->name }}"></dd>
+                    <dt><input type="text" name="name" id="name" value="{{ $userData->name }}"></dt>
 
                 <!-- kana -->
                     <dt><label for="kana">フリガナ</label><span class="required">*</span></dt>
                     @if ($errors->has('email'))
                         <dd class="error">{{ $errors->first('kana') }}</dd>
                     @endif
-                    <dd><input type="text" name="kana" id="kana"  value="{{ $userData->kana }}"></dd>
+                    <dt><input type="text" name="kana" id="kana"  value="{{ $userData->kana }}"></dt>
                     
 
                 <!-- tel -->
@@ -32,7 +32,7 @@
                     @if ($errors->has('email'))
                         <dd class="error">{{ $errors->first('tel') }}</dd>
                     @endif
-                    <dd><input type="text" name="tel" id="tel" value="{{ $userData->tel }}"></dd>
+                    <dt><input type="text" name="tel" id="tel" value="{{ $userData->tel }}"></dt>
                     
                     
                 <!-- email -->
@@ -40,7 +40,7 @@
                     @if ($errors->has('email'))
                         <dd class="error">{{ $errors->first('email') }}</dd>
                     @endif
-                    <dd><input type="text" name="email" id="email" value="{{ $userData->email }}"></dd>
+                    <dt><input type="text" name="email" id="email" value="{{ $userData->email }}"></dt>
                     
                 </dl>
 

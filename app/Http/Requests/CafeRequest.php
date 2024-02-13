@@ -22,8 +22,8 @@ class CafeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=> 'required|max:8',
-            'kana'=> 'required|max:8',
+            'name'=> 'required|max:10',
+            'kana'=> 'required|max:10',
             'tel'=> 'required|numeric', 
             'email'=> 'required|email',
             'body'=>'required',

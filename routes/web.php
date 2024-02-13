@@ -24,5 +24,4 @@ Route::get('destory', [CafeController::class, 'destory'])->name('destory');  //�
 
 // 遷移
 Route::get('confirm', [CafeController::class, 'aaa']); 
-Route::get('edit', [CafeController::class, 'iii']);  
 Route::get('complete', [CafeController::class, 'uuu']);  

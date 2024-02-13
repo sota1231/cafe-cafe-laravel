@@ -16,14 +16,14 @@
                     @if ($errors->has('name'))
                         <dd class="error">{{ $errors->first('name') }}</dd>
                     @endif
-                    <dd><input type="text" name="name" id="name" placeholder="山田太郎" value="{{ old('name')}}"></dd>
+                    <dt><input type="text" name="name" id="name" placeholder="山田太郎" value="{{ old('name')}}"></dt>
 
                 <!-- kana -->
                     <dt><label for="kana">フリガナ</label><span class="required">*</span></dt>
                     @if ($errors->has('kana'))
                         <dd class="error">{{ $errors->first('kana') }}</dd>
                     @endif
-                    <dd><input type="text" name="kana" id="kana" placeholder="ヤマダタロウ" value="{{ old('kana')}}"></dd>
+                    <dt><input type="text" name="kana" id="kana" placeholder="ヤマダタロウ" value="{{ old('kana')}}"></dt>
                     
 
                 <!-- tel -->
@@ -31,7 +31,7 @@
                     @if ($errors->has('tel'))
                         <dd class="error">{{ $errors->first('tel') }}</dd>
                     @endif
-                    <dd><input type="text" name="tel" id="tel" placeholder="09012345678" value="{{ old('tel')}}"></dd>
+                    <dt><input type="text" name="tel" id="tel" placeholder="09012345678" value="{{ old('tel')}}"></dt>
                     
                     
                 <!-- email -->
@@ -39,7 +39,7 @@
                     @if ($errors->has('email'))
                         <dd class="error">{{ $errors->first('email') }}</dd>
                     @endif
-                    <dd><input type="text" name="email" id="email" placeholder="test@test.co.jp" value="{{ old('email')}}"></dd>
+                    <dt><input type="text" name="email" id="email" placeholder="test@test.co.jp" value="{{ old('email')}}"></dt>
                     
                 </dl>
 
@@ -49,7 +49,7 @@
                 @if ($errors->has('name'))
                     <dd class="error">{{ $errors->first('body') }}</dd>
                 @endif    
-                    <dd><textarea name="body" id="body">{{ old('body')}}</textarea></dd>
+                    <dt><textarea name="body" id="body">{{ old('body')}}</textarea></dt>
                     <dd><button type="submit">送　信</button></dd>
                 </dl>
 			</form>

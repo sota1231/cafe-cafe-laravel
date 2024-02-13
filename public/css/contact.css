@@ -16,6 +16,11 @@ a{
 }
 
 
+dt{
+    padding: 10px 0;
+}
+
+
 .section {
     margin: 40px 0;
     padding: 0 5%;
